@@ -1,0 +1,624 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+ol,ul{list-style:none;}
+a{text-decoration:none;color:inherit;display: block;}
+html{font-size:62.5%;scroll-behavior: smooth;}
+body{background: #fff;color: #004660;}
+/* 공통속성 end ===================== */
+
+header{
+    width:100%;
+    position:fixed;
+    left:0;
+    top:0; 
+    z-index: 99;
+    transition:all 0.5s;
+}
+header .inner{
+    width:100%;
+    padding:0 45px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border-bottom: 1px solid #A1A09E;
+    transition: all 0.5s;
+}
+header .inner:hover{background: #fff;}
+header h1{
+    padding-top:30px;
+    transition: all 0.3s ease-in-out;
+}
+header nav{width: 40%;}
+header nav ul.gnb{
+    display:flex;
+    justify-content: space-between;
+}
+li.main{
+    position: relative;
+    border-bottom: 3px solid rgba(255, 255, 255, 0);
+}
+li.main> a{
+    padding: 25px 0 23px;
+    font: 600 16px/1 "heebo";
+}
+li.main:hover{
+    border-bottom: 3px solid #004660;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 98;
+}
+ul.sub{
+    width: 110px;
+    position: absolute;
+    display: none;
+    padding-top: 10px;
+    font: 600 15px/1 "heebo";
+    color: #A1A09E;
+    z-index: 90;
+}
+ul.sub>li{padding: 10px 0;}
+ul.sub li a:hover{color: #9BDCC6;}
+.sub-con{
+    width: 608px;
+    display: flex;
+    margin-top: 0;
+}
+.sub-line li{padding: 10px 35px 10px 0;}
+.sub-line li:first-child{color: #004660;}
+
+.nav-bg{
+    position: absolute;
+    width: 100%;
+    top: 133px;
+    left: 0;
+    background: #fff;
+    display: none;
+}
+ul.gnb .bg1{height: 125px;}
+ul.gnb .bg2{height: 405px;}
+ul.gnb .bg3{height: 195px;}
+
+header .side{
+    position:absolute;
+    right:45px;
+    top:35px; 
+    display:flex;
+    font-size: 20px;
+}
+header .side ul{display: flex;}
+header .side ul li{margin: 0 10px;}
+
+/* header scroll down css */
+header .active{
+    position: relative;
+    background: #fff;
+}
+header .active h1{
+    position: absolute;
+    left: 45px;
+    top: 0;
+    padding: 15px 0;
+    transition: all 0.3s ease-in-out;
+}
+header .active .side{top: 18px;}
+header .active .nav-bg{top: 67.67px;}
+/* header end =============================== */
+
+.visual{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.slide{position: relative;}
+.slide a img{width: 100%;}
+.slide h2{
+    position: absolute;
+    left: 250px;
+    bottom: 170px;
+    font: 700 45px/1 "heebo";
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 1s;
+    transition-delay: 1s;
+}
+.slide p{
+    position: absolute;
+    left: 250px;
+    bottom: 130px;
+    font: 600 19px/1 "heebo";
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 1s;
+    transition-delay: 1.3s;
+}
+.slide.slick-active h2{
+    opacity: 1;
+    transform: translateY(0);
+}
+.slide.slick-active p{
+    opacity: 1;
+    transform: translateY(0);
+}
+.custom-slide-dots{
+    width: 8%;
+    position: absolute;
+    left: 250px;
+    bottom: 60px;
+}
+.custom-slide-dots ul{
+    height: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.custom-slide-dots li{
+    width: 10px;
+    height: 10px;
+    background: #A1A09E;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.custom-slide-dots li button{display: none;}
+.custom-slide-dots li.slick-active{
+    width: 13px;
+    height: 13px;
+    background: url("../img/plus_btn.png");
+}
+/* visual end =============================== */
+
+.main-contents{width: 100%;}
+.main-track{
+    width: 1200px;
+    height: 720px;
+    margin: 120px auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.left_track_wrap{
+    position:relative;
+    top:100px;
+    opacity: 0;
+    transition:all 1s;
+}
+.left_track_wrap.animated{
+    opacity: 1;
+    top: 0;
+    transition-delay:0.5s;
+}
+.right_track_wrap{
+    position:relative;
+    top:100px;
+    opacity: 0;
+    transition:all 1.5s;
+}
+.right_track_wrap.animated{
+    opacity: 1;
+    top: 0;
+    transition-delay:0.7s;
+}
+.left-track{
+    width: 550px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.right-track{
+    width: 550px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.left-track .by-line{padding-bottom: 50px;}
+.right-track .by-line{padding-top: 50px;}
+.by-line{position: relative;}
+.by-line a{overflow: hidden;}
+.by-line a img{transition: 1s;}
+.by-line a:hover img{transform: scale(1.1);}
+.left-track .by-line .txt-box{
+    position: absolute;
+    left: 30px;
+    bottom: -9px;
+}
+.right-track .by-line .txt-box{
+    position: absolute;
+    left: 70px;
+    top: 5px;
+}
+.by-line h2{
+    font: 500 30px/1.5 "heebo";
+    opacity: 0;
+    transform: translateX(100px);
+    transition: 1s;
+    transition-delay: 1s;
+}
+.by-line p{
+    font: 700 40px/1.5 "heebo";
+    opacity: 0;
+    transform: translateX(60px);
+    transition: 1.2s;
+    transition-delay: 1.3s;
+}
+.by-line.slick-active h2{
+    opacity: 1;
+    transform: translateX(0);
+}
+.by-line.slick-active p{
+    opacity: 1;
+    transform: translateX(0);
+}
+.custom-slick-dots1{
+    width: 50px;
+    position: absolute;
+    left: 470px;
+    top: 30px;
+}
+.custom-slick-dots2{
+    width: 50px;
+    position: absolute;
+    right: 470px;
+    bottom: 30px;
+}
+.custom-slick-dots1 ul,
+.custom-slick-dots2 ul{
+    display: flex;
+    justify-content: space-between;
+}
+.custom-slick-dots1 li,
+.custom-slick-dots2 li{
+    width: 10px;
+    height: 10px;
+    background: #A1A09E;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.custom-slick-dots1 button,
+.custom-slick-dots2 button{
+    display: none;}
+.custom-slick-dots1 li.slick-active,
+.custom-slick-dots2 li.slick-active{
+    width: 13px;
+    height: 13px;
+    background: url("../img/plus_btn.png");
+}
+/* main-contents end =============================== */
+
+
+.brand-banner{
+    width: 100%;
+    height: 573.79px;
+}
+.brand-inner{
+    position: relative;
+    top: 100px;
+    opacity: 0;
+    transition: 0.7s;
+}
+.brand-inner.animated{
+    top: 0;
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+.brand-inner img{
+    width: 100%;
+    position: absolute;
+}
+.b-text{
+    position: absolute;
+    left: 80px;
+    top: 45px;
+}
+.b-text #p1{font: 600 18px/1 "heebo";}
+.b-text h2{
+    font: 700 45px/1 "heebo";
+    padding: 25px 0;
+}
+.b-text p{font: 500 15px/1.5 "heebo";}
+.btn-box{
+    margin-top: 40px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid #004660;
+    text-align: center;
+}
+.btn-box:hover{
+    background:#ffffffb5;
+    cursor: pointer;
+}
+.btn-box p{
+    font: 600 18px/1 "heebo";
+    line-height: 40px;
+}
+/* brand-banner end =============================== */
+
+.tab-banner{
+    width: 100%;
+    height: 550px;
+}
+.tab-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 120px;
+    top: 100px;
+    opacity: 0;
+    transition: 0.7s;
+}
+.tab-inner.animated{
+    top: 0;
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+.tab-menu{
+    width: 25%;
+    padding-left: 80px;
+}
+.tab-menu h3{
+    font: 700 40px/1 "heebo";
+    padding-bottom: 40px;
+    color: #A1A09E;
+}
+.tab-menu h3.on{color: #004660;}
+.tab-menu h3 a{
+    position: relative;
+    z-index: 80;
+}
+.tab-menu h3 .under{
+    width: 210px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 0 10px 10px 0;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-150px);
+    transition: all 0.6s;
+}
+.tab-menu h3 .u-box1{
+    left: 0;
+    top: 15px;
+}
+.tab-menu h3 .u-box2{
+    left: 0;
+    top: 100px;
+}
+.tab-menu h3.on .under{
+    opacity: 1;
+    transform: translateX(0);
+}
+/*  탭영역 End --------------------- */
+
+.tab-swiper{
+    width: 75%;
+    position: relative;
+}
+.swiper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+.swiper.on{display: block;}
+.new-treck .on{display: block;}
+.swiper-wrapper{width: 100%;}
+.swiper-slide{
+    width: 400px;
+    height: 500px;
+    position: relative;
+}
+.swiper-slide img{width: 100%;}
+.cart-box{
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 16px;
+    font: 600 15px/1.3 "heebo";
+    display: none;
+}
+.cart-box>p{
+    display: block;
+    margin: 15px 0;
+}
+.cart-btn{
+    width: 40%;
+    height: 36px;
+    background: #DDDDDD;
+    margin: 0 auto;
+}
+.cart-btn a{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    line-height: 36px;
+}
+.cart-btn a i{line-height: 36px}
+.swiper-scrollbar-drag{
+    width: 729.687px;
+    background: #004660;
+}
+/* tab-container end ============================== */
+
+.sub-banner{
+    width: 100%;
+    margin: 120px 0;
+}
+.sub-inner{
+    position: relative;
+    width: 92%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.sub-left{
+    top:100px;
+    opacity: 0;
+    transition:all 1s;
+}
+.sub-left.animated{
+    opacity: 1;
+    top: 0;
+    transition-delay:0.5s;
+}
+.sub-right{
+    position:relative;
+    top:100px;
+    opacity: 0;
+    transition:all 1.5s;
+}
+.sub-right.animated{
+    opacity: 1;
+    top: 0;
+    transition-delay:0.7s;
+}
+.img-box{
+    width: 750px;
+    height: 750px;
+    position: relative;
+    overflow: hidden;
+}
+.img-box img{
+    width: 100%;
+    transition: 1s;
+}
+.img-box:hover img{
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+.sub-text{
+    position: absolute;
+    left: 45px;
+    bottom: 45px;
+}
+.sub-text h2{
+    font: 700 40px/1 "heebo";
+    padding-bottom: 20px ;
+}
+.sub-text>p{font: 500 15px/1.5 "heebo";}
+/* sub-banner end ================================= */
+
+.insta{
+    width: 100%;
+    margin-bottom: 120px;
+}
+.insta-inner{
+    width: 100%;
+    position: relative;
+    top: 100px;
+    opacity: 0;
+    transition: 0.7s;
+}
+.insta-inner.animated{
+    top: 0;
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+.in-textbox{
+    width: 100%;
+    text-align: center;
+}
+.in-textbox h2{
+    font: 700 40px/1 "heebo";
+    padding-bottom: 10px;
+}
+.in-textbox p{ font: 600 18px/1 "heebo";}
+.insta-box{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+}
+.in-img{
+    width: 339px;
+    height: 339px;
+    overflow: hidden;
+}
+.in-img a img{
+    width: 100%;
+    transition: 1s;
+}
+.in-img a:hover img{transform: scale(1.1);}
+/* instagram end ================================= */
+
+footer{width: 100%;}
+footer .f-inner{
+    width: 100%;
+    height: 100%;
+    background: #DDDDDD;
+    padding: 70px 80px;
+    font: 600 15px/1.8 "heebo";
+}
+.f-text{
+    height: 162px;
+    margin: 60px 0;
+    position: relative;
+}
+.text-left{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    gap: 50px;
+}
+.text-center{
+    position: absolute;
+    left: 500px;
+    top: 0;
+    display: flex;
+    gap: 50px;
+}
+.text-right{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.text-right li:hover a{color: #004660b1;}
+.f-box{ display: flex;}
+.f-sns{
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+}
+.f-sns li a:hover i{color: #004660b1;}
+.f-box p{
+    line-height: 36px;
+    margin: 0 auto;
+}
+/* footer end =================================== */
+
+.icon{
+    position: fixed;
+    right: 45px;
+    bottom: 60px;
+    z-index: 99;
+    display: none;
+}
+.icon.active{display: block;}
+.icon-box{
+    width: 40px;
+    font: 700 18px/1 "heebo";
+    text-align: center;
+}
+.top-box{
+    height: 53px;
+    margin-bottom: 25px;
+}
+.top-box:hover a{color: #004660b1;}
+.top-box a i{font-size: 35px;}
+.chat-box{ height: 53px;}
+.chat-box:hover a{color: #004660b1;}
+.chat-box a i{font-size: 30px;}
+/* icon end =================================== */
+
+
+
+
